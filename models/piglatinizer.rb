@@ -6,15 +6,16 @@ class PigLatinizer
         @words = words
     end
 
-    def piglatinize_string(string)
+    def piglatinize(string)
         a = string.split(" ")
         b = a.map {|word| piglatinize(word)}
         b.join(" ")
     end
 
-    def piglatinize(word)
-        first_letter = word[0].downcase
+    def piglatinize_word(word)
         vowels = ['a','e','i','o','u']
+        first_letter = word[0].downcase
+        
         if vowels.include?(first_letter)
             "#{word}way"
         else
